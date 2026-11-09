@@ -1,0 +1,23 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "sweepflow"
+version = "1.0.0"
+description = "Multi-view LiDAR-to-RGB generation with Cross-View State Exchange"
+readme = "README.md"
+requires-python = ">=3.10"
+dynamic = ["dependencies"]
+
+[project.scripts]
+sweepflow = "sweepflow3.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+sweepflow3 = ["data/nuscenes_val_scenes.json"]
+
+[tool.setuptools.dynamic]
+dependencies = {file = ["requirements.txt"]}

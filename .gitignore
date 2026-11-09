@@ -1,0 +1,16 @@
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+/build/
+/dist/
+/assets/
+/pretrained/
+/data/
+/outputs/
+/predictions/
+*.pt
+*.pth
+*.safetensors
+*.log
+.DS_Store

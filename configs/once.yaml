@@ -1,0 +1,77 @@
+# Paths are resolved from the directory where the command is run.
+dataset: once
+workdir: ./outputs/once
+assets_root: ./assets
+seed: 0
+split_seed: 3407
+model:
+  sd35_root: ./pretrained/stable-diffusion-3.5-medium
+  empty_prompt_cache: ./assets/sd35_empty_prompt.pt
+  internal_width: 128
+  internal_blocks:
+  - 2
+  - 6
+  - 10
+  - 14
+  - 18
+  - 22
+  return_budget: 1024
+  activation_checkpointing: true
+data:
+  image_hw:
+  - 336
+  - 640
+points:
+  max_points: 20000
+  voxel_size: 0.1
+  checkpoint_blocks: 4
+semantic:
+  dim: 128
+  projection_seed: 7351
+  teacher_hw:
+  - 336
+  - 644
+  teacher_view_batch: 2
+  alignment_block: 10
+  alignment_weight: 0.1
+  alignment_warmup: 1000
+stage_a:
+  epochs: 2
+  global_batch: 8
+  microbatch: 1
+  lr: 2.0e-05
+  head_lr: 0.0001
+  warmup: 500
+  weight_decay: 0.01
+  grad_clip: 1.0
+  save_every: 1000
+stage_b:
+  steps: 20000
+  global_batch: 32
+  microbatch: 2
+  lr: 0.0001
+  warmup: 500
+  weight_decay: 0.01
+  grad_clip: 1.0
+  ema_decay: 0.9999
+  save_every: 1000
+workers:
+  cpu_threads: 2
+  io_threads: 2
+log_every: 20
+dataset_config:
+  root: ./data/once
+  cameras:
+  - cam01
+  - cam03
+  - cam05
+  - cam06
+  - cam07
+  - cam08
+  - cam09
+  train_lists:
+  - train.txt
+  - raw_small.txt
+  test_list: val.txt
+  dev_fraction: 0.1
+  missing_policy: error

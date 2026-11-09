@@ -1,0 +1,17 @@
+# Install the CUDA-compatible PyTorch/torchvision pair first; see README.
+torch>=2.4,<3
+torchvision>=0.19,<1
+numpy>=1.24
+scipy>=1.10
+Pillow>=10
+PyYAML>=6
+opencv-python-headless>=4.8
+safetensors>=0.4
+huggingface-hub>=0.25,<1
+diffusers==0.35.2
+transformers>=4.46,<5
+accelerate>=1.2,<2
+sentencepiece>=0.2
+protobuf>=4
+omegaconf>=2.3
+einops>=0.7
